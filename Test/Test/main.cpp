@@ -1,12 +1,16 @@
 #include <iostream>
 #include <vector>
-#include "../../4Sum.h"
+#include <unordered_map>
+#include <map>
+#include "../../Anagrams.h"
 using namespace std;
 
 int main(int argc, const char * argv[])
 {
     Solution s;
-    vector<int> g{1, 1, 1, 0};
-    vector<vector<int> > r = s.fourSum(g, 1);
+    vector<string> input{"book", "koob", "kobo", "damn", "mnad", "every"};
+    vector<string> ret = s.anagrams(input);
+    for (auto i : ret)
+        cout << i << endl;
     return 0;
 }
