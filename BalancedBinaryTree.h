@@ -1,7 +1,7 @@
 /*
  Author:     Felix Zhou, zcfelix.zhou@gmail.com
  Date:       Jul 6th, 2015
- Problem:    Anagrams
+ Problem:    Balanced Binary Tree
  Difficulty: Easy
  Source:     https://leetcode.com/problems/balanced-binary-tree/
  Notes:
