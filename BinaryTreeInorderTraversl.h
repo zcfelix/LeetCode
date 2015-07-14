@@ -17,9 +17,9 @@
  Note:
  Recursive solution is trivial, could you do it iteratively?
 
- Solution: 1. Recursive Solution
- 		   2. Iterative Solution
- 		   3. Morris Solution
+ Solution: 1. Recursive solution
+ 		   2. Iterative solution
+ 		   3. Morris solution
  
  http://www.gocalf.com/blog/traversing-binary-tree.html
  http://noalgo.info/832.html
@@ -36,6 +36,7 @@
  */
 
 #include <stack>
+#include <vector>
 using namespace std;
 
 class Solution
