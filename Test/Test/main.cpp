@@ -1,12 +1,22 @@
 #include <iostream>
 #include <vector>
-#include "../../BasicCalculatorII.h"
+#include <algorithm>
+#include "../../CombinationSumII.h"
 using namespace std;
 
 int main(int argc, const char * argv[])
 {
     Solution s;
-    string input = "0-2147483648";
-    cout << s.calculate(input) << endl;
+    vector<int> candidates{1, 1};
+    int target = 2;
+    vector<vector<int> > ret = s.combinationSum2(candidates, target);
+    for (auto i : ret)
+    {
+        for (auto j : i)
+        {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
