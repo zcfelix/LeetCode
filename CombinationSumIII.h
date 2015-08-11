@@ -23,7 +23,36 @@
  Solution: DFS 
 */
 
-// DFS
+// // DFS
+// class Solution
+// {
+// public:
+// 	vector<vector<int> > combinationSum3(int k, int n)
+// 	{
+// 		vector<vector<int> > res;
+// 		vector<int> path;
+// 		dfs(k, n, 1, 0, 0, path, res);
+// 		return res;
+// 	}
+
+// private:
+// 	void dfs(int k, int n, int idx, int sum, int cnt, 
+// 		vector<int>& path, vector<vector<int> >& res)
+// 	{
+// 		if (sum > n || cnt > k || idx > 10) return;
+// 		if (sum == n && cnt == k)
+// 		{
+// 			res.push_back(path);
+// 			return;
+// 		}
+// 		dfs(k, n, idx + 1, sum, cnt, path, res);
+// 		path.push_back(idx);
+// 		dfs(k, n, idx + 1, sum + idx, cnt + 1, path, res);
+// 		path.pop_back();
+// 	}
+// };
+
+// Backtrack
 class Solution
 {
 public:
@@ -31,28 +60,27 @@ public:
 	{
 		vector<vector<int> > res;
 		vector<int> path;
-		dfs(k, n, 1, 0, 0, path, res);
+		helper(k, n, 1, path, res);
 		return res;
 	}
 
 private:
-	void dfs(int k, int n, int idx, int sum, int cnt, 
-		vector<int>& path, vector<vector<int> >& res)
+	void helper(int k, int target, int start, vector<int>&path,
+		vector<vector<int> >& res)
 	{
-		if (sum > n || cnt > k || idx > 10) return;
-		if (sum == n && cnt == k)
-		{
+		if (k == 0 && target == 0)
 			res.push_back(path);
-			return;
+		else
+		{
+			for (int i = start; i < 10 && i <= target; ++i)
+			{
+				path.push_back(i);
+				helper(k - 1, target - i, i + 1, path, res);
+				path.pop_back();
+			}
 		}
-		dfs(k, n, idx + 1, sum, cnt, path, res);
-		path.push_back(idx);
-		dfs(k, n, idx + 1, sum + idx, cnt + 1, path, res);
-		path.pop_back();
 	}
 };
-
-
 
 
 

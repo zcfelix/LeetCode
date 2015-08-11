@@ -1,22 +1,38 @@
 #include <iostream>
 #include <vector>
+#include <map>
 #include <algorithm>
-#include "../../CombinationSumII.h"
+#include "../../ContainsDuplicateIII.h"
 using namespace std;
+
+//void inorderTraversal(TreeNode* root)
+//{
+//    if (!root) return;
+//    inorderTraversal(root->left);
+//    cout << root->val << " ";
+//    inorderTraversal(root->right);
+//}
+//
+//void preorderTraversal(TreeNode* root)
+//{
+//    if (!root) return;
+//    cout << root->val << " ";
+//    preorderTraversal(root->left);
+//    preorderTraversal(root->right);
+//}
 
 int main(int argc, const char * argv[])
 {
-    Solution s;
-    vector<int> candidates{1, 1};
-    int target = 2;
-    vector<vector<int> > ret = s.combinationSum2(candidates, target);
-    for (auto i : ret)
+    map<int, int> m{ {2, 100}, {1, 300}, {3, 200} };
+    for (auto i : m)
     {
-        for (auto j : i)
-        {
-            cout << j << " ";
-        }
-        cout << endl;
+        cout << i.first << ": " << i.second << endl;
     }
+    auto iter = m.lower_bound(3);
+    cout << "========================" << endl;
+    for (; iter != m.end(); ++iter)
+        cout << iter->first << ": " << iter->second << endl;
     return 0;
 }
+
+
