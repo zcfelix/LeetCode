@@ -2,7 +2,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
-#include "../../ContainsDuplicateIII.h"
+#include "../../CopyListwithRandomPointer.h"
 using namespace std;
 
 //void inorderTraversal(TreeNode* root)
@@ -23,16 +23,28 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-    map<int, int> m{ {2, 100}, {1, 300}, {3, 200} };
-    for (auto i : m)
+    Solution s;
+    RandomListNode x(1), y(2), z(3);
+    x.next = &y;
+    y.next = &z;
+    x.random = &z;
+    y.random = NULL;
+    
+    RandomListNode *r = s.copyRandomList(&x);
+    RandomListNode *cur = r;
+    while (cur)
     {
-        cout << i.first << ": " << i.second << endl;
+        cout << cur->label << "->";
+        cur = cur->next;
     }
-    auto iter = m.lower_bound(3);
-    cout << "========================" << endl;
-    for (; iter != m.end(); ++iter)
-        cout << iter->first << ": " << iter->second << endl;
-    return 0;
+    cout << "NULL\n" << "====================" << endl;
+    cur = r;
+    while (cur)
+    {
+        cout << cur->label << "->";
+        cur = cur->random;
+    }
+    cout << "NULL" << endl;
 }
 
 
