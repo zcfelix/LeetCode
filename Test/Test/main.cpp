@@ -2,14 +2,14 @@
 #include <vector>
 #include <map>
 #include <algorithm>
-#include "../../DecodeWays.h"
+#include "../../EvaluateReversePolishNotation.h"
 using namespace std;
 
 int main()
 {
     Solution s;
-    string str = "10";
-    cout << s.numDecodings(str) << endl;
+    vector<string> tokens{"4", "13", "5", "/", "+"};
+    cout << s.evalRPN(tokens) << endl;
     return 0;
 }
 
